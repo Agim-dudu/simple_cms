@@ -16,16 +16,18 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+
+        // Hapus data lama jika ada
+        User::query()->delete();
+
         $user1 = new User([
             'name' => 'agim',
             'email' => 'agimduduu@gmail.com',
             'password' => Hash::make('password123'), // Ganti dengan kata sandi yang aman
             'role' => 1,
+            'email_verified_at' => now(),
         ]);
 
         $user1->save();
-        // Trigger event Registered dan Verified
-        event(new Registered($user1));
-        event(new Verified($user1));
     }
 }

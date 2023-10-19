@@ -594,18 +594,8 @@ body {
     margin-bottom: 10px;
 }
 
-.btn {
-    background-color: var(--blue);
-    display: inline-block;
-    padding: 10px;
-    border: var(--light-blue);
-    border-radius: 0.25rem;
-    color: white;
-    font-weight: bold;
-	font-size: 15px;
-}
-.btn1 {
-    background-color:#099e36;
+.btn btn-primary {
+    background-color:#007bff;
     display: inline-block;
     padding: 10px;
     border: var(--light-blue);
@@ -616,8 +606,8 @@ body {
 	width: 63px;
 	text-align: center;
 }
-.btn2 {
-    background-color:#c10000;
+.btn btn-secondary {
+    background-color:#6c757d;
     display: inline-block;
     padding: 10px;
     border: var(--light-blue);
@@ -628,14 +618,53 @@ body {
 	width: 63px;
 	text-align: center;
 }
-
-#btnEdit {
-    background-color: lightskyblue;
-    margin-right: 5px;
+.btn btn-success {
+    background-color:#28a745;
+    display: inline-block;
+    padding: 10px;
+    border: var(--light-blue);
+    border-radius: 0.25rem;
+    color: white;
+    font-weight: bold;
+	font-size: 15px;
+	width: 63px;
+	text-align: center;
 }
-
-#btnHapus {
-    background-color: red;
+.btn btn-danger {
+    background-color:#dc3545;
+    display: inline-block;
+    padding: 10px;
+    border: var(--light-blue);
+    border-radius: 0.25rem;
+    color: white;
+    font-weight: bold;
+	font-size: 15px;
+	width: 63px;
+	text-align: center;
+}
+.btn btn-warning {
+    background-color:#ffc107;
+    display: inline-block;
+    padding: 10px;
+    border: var(--light-blue);
+    border-radius: 0.25rem;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+	font-size: 15px;
+	width: 63px;
+	text-align: center;
+}
+.btn btn-info {
+    background-color:#17a2b8;
+    display: inline-block;
+    padding: 10px;
+    border: var(--light-blue);
+    border-radius: 0.25rem;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+	font-size: 15px;
+	width: 63px;
+	text-align: center;
 }
 
 /* .tabel {

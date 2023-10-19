@@ -16,11 +16,22 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-4 sm:-my-px sm:ml-5 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('')">
-                        {{ __('My Project') }}
+                <div class="hidden space-x-4 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('my-data.index')" :active="request()->routeIs('my-data.index')">
+                        {{ __('My Data') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-4 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('project.create')" :active="request()->routeIs('project.create')">
+                        {{ __('Tambah Project') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-4 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('task.create')" :active="request()->routeIs('task.create')">
+                        {{ __('Tambah Task') }}
+                    </x-nav-link>
+                </div>
+
             </div>
 
             <!-- Settings Dropdown -->
@@ -45,8 +56,8 @@
                         @php
                         if (Auth::user()->role == 1) {
                         @endphp
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Admin Dashboard') }}
+                        <x-dropdown-link :href="route('role.dashboard_leader.index')">
+                            {{ __('Leader Dashboard') }}
                         </x-dropdown-link>
                         @php
                         }

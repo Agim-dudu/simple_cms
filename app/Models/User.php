@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Models\Task;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -27,6 +28,23 @@ class User extends Authenticatable implements MustVerifyEmail
         'role',
     ];
 
+    public function tasks()
+    {
+        return $this->hasMany(Task::class, 'user_id', 'id');
+    }
+
+    public function projects()
+    {
+        return $this->hasManyThrough(
+            Project::class, // Model Tujuan
+            Task::class,    // Model Tengah
+            'user_id',      // Kunci Asing pada Model Awal (User)
+            'id',           // Kunci Primer pada Model Tengah (Task)
+            'id',           // Kunci Asing pada Model Tujuan (Project)
+            'project_id'    // Kunci Primer pada Model Tujuan (Project)
+        );
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -46,4 +64,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
 }
